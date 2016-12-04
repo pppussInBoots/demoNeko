@@ -1,13 +1,13 @@
 package com.neko.selectgithubuser.ui;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -19,7 +19,6 @@ import com.neko.selectgithubuser.presenter.PresenterSelectUser;
 import com.neko.selectgithubuser.ui.adapter.CommonAdapter;
 import com.neko.selectgithubuser.ui.adapter.UniversalViewHolder;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends Activity {
@@ -28,6 +27,7 @@ public class MainActivity extends Activity {
     private ListView mListView;
     private Button mDoSelect;
     private CommonAdapter<GithubUserInfo> mAdapter;
+    private ProgressDialog mDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,14 +81,8 @@ public class MainActivity extends Activity {
             @Override
             protected void setViewData(GithubUserInfo item, final UniversalViewHolder holder) {
                 ImageView imageView = holder.getView(R.id.user_avatar_im_v);
-                mPresenterSelectUser.getFavorLanguage(item.getReposUrl(), new IViewSuccess<String>() {
-                    @Override
-                    public void onSuccess(String s) {
-                        holder.setViewText(R.id.user_favorLanguage_tx_v, s);
-                        mAdapter.notifyDataSetChanged();
-                    }
-                });
-                holder.setViewText(R.id.user_name_tx_v, item.getName());
+                holder.setViewText(R.id.user_name_tx_v, item.getName()).
+                        setViewText(R.id.user_favorLanguage_tx_v, String.format("%s%s", "偏爱语言：", item.getFavorLanguage()));
                 String avatarUrl = item.getAvatarUrl();
                 Glide.with(getApplication()).load(avatarUrl).diskCacheStrategy(DiskCacheStrategy.RESULT)
                         .placeholder(R.mipmap.ic_launcher).into(imageView);

@@ -47,12 +47,4 @@ public class PresenterSelectUser {
         });
     }
 
-    public void getFavorLanguage(String url, final IViewSuccess<String> viewSuccess) {
-        mModeSelectUser.getFavor(url, new IActionSuccess<String>() {
-            @Override
-            public void success(String s) {
-                viewSuccess.onSuccess(s);
-            }
-        });
-    }
 }

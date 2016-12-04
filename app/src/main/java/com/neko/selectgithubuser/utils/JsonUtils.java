@@ -3,9 +3,9 @@ package com.neko.selectgithubuser.utils;
 import android.util.Log;
 
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+import com.neko.selectgithubuser.bean.GithubRepos;
 import com.neko.selectgithubuser.bean.GithubResult;
-import java.util.List;
+
 
 
 /**
@@ -19,9 +19,9 @@ public class JsonUtils {
         return mGson.fromJson(jsonString, GithubResult.class);
     }
 
-    public static <T> List<T> parseArray(String string, TypeToken<List<T>> type) {
-        String json = String.format("%s%s%s", "{ \"data\":", string, "}");
+    public static GithubRepos parseArray(String string) {
+        String json=String.format("%s%s%s", "{\"data\":", string, "}");
         Log.i("调试", json);
-        return mGson.fromJson(json, type.getType());
+        return mGson.fromJson(json, GithubRepos.class);
     }
 }

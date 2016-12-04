@@ -9,6 +9,7 @@ import java.util.List;
  * Created by Administrator on 2016/12/4 0004.
  */
 public class GithubRepos {
+    @SerializedName(ProtocolKey.Data)
     private List<GithubUserRepos> mGithubUserReposes;
 
     public List<GithubUserRepos> getGithubUserReposes() {

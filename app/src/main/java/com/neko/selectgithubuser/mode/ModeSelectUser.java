@@ -39,7 +39,7 @@ public class ModeSelectUser {
     }
 
     public void doSelect(final String userName, final IActionSuccess<List<GithubUserInfo>> success) {
-        mIAction.start("正在查找该用户的信息");
+        mIAction.start("正在查找..");
         WorkFactory.INSTANCE.mService.submit(new Runnable() {
             @Override
             public void run() {

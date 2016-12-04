@@ -53,7 +53,7 @@ public class MainActivity extends Activity {
             @Override
             public void onStart(String s) {
                 if (mDialog == null) {
-                    mDialog = new ProgressDialog(getApplication());
+                    mDialog = new ProgressDialog(MainActivity.this);
                 }
                 mDialog.setMessage(s);
                 mDialog.show();

@@ -21,7 +21,7 @@ public class JsonUtils {
 
     public static GithubRepos parseArray(String string) {
         String json=String.format("%s%s%s", "{\"data\":", string, "}");
-        Log.i("调试", json);
+        //Log.i("调试", json);
         return mGson.fromJson(json, GithubRepos.class);
     }
 }

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.MainActivity">
+
+    <Button
+        android:id="@+id/doSelect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/common_margin_top"
+        android:text="查询"/>
+
+
+    <EditText
+        android:id="@+id/main_et_v"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="@dimen/common_margin_top"
+        android:layout_toLeftOf="@id/doSelect"
+        android:layout_toStartOf="@id/doSelect"
+        android:background="@null"
+        android:gravity="center"
+        android:hint="@string/edit_hint"/>
+
+    <ListView
+        android:id="@+id/main_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/main_et_v"
+        android:layout_marginTop="@dimen/common_margin_top"/>
+</RelativeLayout>

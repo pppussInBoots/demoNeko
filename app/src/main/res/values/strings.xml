@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">SelectGithubUser</string>
+    <string name="edit_hint">输入你要查询的Github用户名</string>
+</resources>
